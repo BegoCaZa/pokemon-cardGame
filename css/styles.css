@@ -1,12 +1,10 @@
-:root{
+:root {
   --color-bg: #1e3b71;
   --yellow: #ffcc03;
   --blue: #386abb;
   --red: #ee1515;
   --black: #222224;
   --white: #f0f0f0;
-
-  
 }
 * {
   box-sizing: border-box;
@@ -42,50 +40,54 @@ body {
   height: 100vh;
 }
 
-.card{
-  position: relative;
-  width: 200px;
-  height: 300px;
-  perspective: 500px;
-  border: 2px solid var(--black);
-  border-radius: .5rem ;
-  /* overflow: hidden; */
-
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
 
-.card-back,.card-front{
+.card {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  perspective: 500px;
+  border: 2px solid var(--black);
+  border-radius: 0.5rem;
+  /* overflow: hidden; */
+}
 
+.card-back,
+.card-front {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: .5rem ;
+  border-radius: 0.5rem;
   background-size: cover;
   background-position: center;
-  box-shadow: 5px 5px 5px rgb(0, 0,0/0.6);
+  box-shadow: 5px 5px 5px rgb(0, 0, 0/0.6);
   transition: rotate 1s;
   backface-visibility: hidden;
+  pointer-events: none;
 }
 
-.card-front{
+.card-front {
   background-color: var(--blue);
-  background-image: url(../assets/images/101.png);
+  background-image: var(--pokemon-img);
   background-size: 90%;
   background-repeat: no-repeat;
-  rotate: y 180deg; 
+  rotate: y 180deg;
 }
 
-.card-back{
+.card-back {
   background-color: var(--red);
 }
 
+.card-clicked .card-front {
+  rotate: y 360deg;
+}
 
-@media (hover:hover){
-  .card:hover .card-front{
-    rotate: y 360deg;
-  }
-  .card:hover .card-back{
-    rotate: y 180deg;
-  }
+.card-clicked .card-back {
+  rotate: y 180deg;
 }
