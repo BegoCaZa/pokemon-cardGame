@@ -11,11 +11,14 @@ const flipCards = event => {
     flippedCards.push(clickedCard);
   }
   if (flippedCards.length === 2) {
-    if (flippedCards[0].id !== flippedCards[1].id) {
-      //si no son iguales
+    if (flippedCards[0].id === flippedCards[1].id) {
+      //si son iguales
+      flippedCards = [];
+    } else {
       setTimeout(() => {
         flippedCards[0].classList.remove('card-clicked');
         flippedCards[1].classList.remove('card-clicked');
+        flippedCards = [];
       }, 1000);
     }
   }
