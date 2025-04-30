@@ -4,7 +4,7 @@ let pokemons = [];
 let flippedCards = [];
 
 const flipCards = event => {
-  const clickedCard = event.target;
+  const clickedCard = event.target.closest(`.card`);
   clickedCard.classList.add('card-clicked');
 
   if (clickedCard.classList.contains('card-clicked')) {
